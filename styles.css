@@ -49,29 +49,59 @@ body {
     font-size: 1.2em;
     font-weight: bold;
   }
-
+  
   button {
     margin-top: 40px;
   }
   
-  table {
-    border-collapse: collapse;
-    border: 3px solid black; /* Add a bold border around the game grid */
-    margin: 0 auto;
+  /* Media query for mobile devices */
+  @media (max-width: 480px) {
+    #game-board {
+      width: 270px;
+      height: 270px;
+    }
+  
+    .cell {
+      width: 30px;
+      height: 30px;
+    }
+  
+    .cell input {
+      font-size: 1em;
+    }
   }
   
-  td {
-    border: 1px solid black;
-    height: 50px;
-    text-align: center;
-    vertical-align: middle;
-    width: 50px;
+  /* Media query for iPhone 6/7/8/SE */
+  @media (max-width: 375px) {
+    #game-board {
+      width: 225px;
+      height: 225px;
+    }
+  
+    .cell {
+      width: 25px;
+      height: 25px;
+    }
+  
+    .cell input {
+      font-size: 0.8em;
+    }
   }
   
-  input {
-    border: none;
-    font-size: 1.2em;
-    text-align: center;
-    width: 100%;
+  /* Media query for larger iPhone sizes (iPhone 6/7/8 Plus, iPhone XR, iPhone Xs Max) */
+  @media (max-width: 414px) {
+    #game-board {
+      width: 310px;
+      height: 310px;
+    }
+  
+    .cell {
+      width: 34px;
+      height: 34px;
+    }
+  
+    .cell input {
+      font-size: 1.1em;
+    }
   }
   
