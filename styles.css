@@ -1,3 +1,12 @@
+
+:root {
+    --cell-size: 50px;
+    --border-width: 1px;
+    --bold-border-width: 3px;
+    --num-cells: 9;
+    --gap: 1px;
+  }
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -10,36 +19,60 @@ body {
   
   .container {
     text-align: center;
+    width: calc(var(--num-cells) * (var(--cell-size) + 2 * var(--border-width)) + (var(--num-cells) - 1) * var(--gap) + 2 * (var(--bold-border-width) - var(--border-width)));
+    height: auto;
+    padding-bottom: 20px;
   }
   
-  #game-board {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(9, 1fr);
-    gap: 1px;
-    background-color: black;
-    width: 450px;
-    height: 450px;
+  
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(var(--num-cells), 1fr);
+  grid-template-rows: repeat(var(--num-cells), 1fr);
+  gap: var(--gap);
+  background-color: black;
+  width: calc(var(--num-cells) * (var(--cell-size) + 2 * var(--border-width)) + (var(--num-cells) - 1) * var(--gap) + 2 * (var(--bold-border-width) - var(--border-width)));
+  height: calc(var(--num-cells) * (var(--cell-size) + 2 * var(--border-width)) + (var(--num-cells) - 1) * var(--gap) + 2 * (var(--bold-border-width) - var(--border-width)));
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: var(--border-width) solid #ccc;
+}
+  
+/* Vertical bold borders */
+.cell:nth-child(3n) {
+    border-right: 3px solid black;
   }
   
-  .cell {
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ccc;
+  /* Horizontal bold borders */
+  .cell:nth-child(27n + 19),
+  .cell:nth-child(27n + 20),
+  .cell:nth-child(27n + 21),
+  .cell:nth-child(27n + 46),
+  .cell:nth-child(27n + 47),
+  .cell:nth-child(27n + 48) {
+    border-bottom: 3px solid black;
   }
   
-  .cell:nth-child(3n) {
-    box-shadow: 2px 0 0 0 black;
+  /* Remove border-bottom for cells above horizontal bold borders */
+  .cell:nth-child(27n + 10),
+  .cell:nth-child(27n + 11),
+  .cell:nth-child(27n + 12),
+  .cell:nth-child(27n + 37),
+  .cell:nth-child(27n + 38),
+  .cell:nth-child(27n + 39) {
+    border-bottom: none;
   }
-  
-  .cell:nth-child(27n) {
-    box-shadow: 0 2px 0 0 black;
-  }
-  
+
+
+
+    
   .cell input {
     width: 100%;
     height: 100%;
