@@ -29,11 +29,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ccc;
+  }
+  
+  .cell:nth-child(3n + 1),
+  .cell:nth-child(3n + 2) {
+    border-right: 1px solid #ccc;
   }
   
   .cell:nth-child(3n) {
     border-right: 4px solid black;
+  }
+  
+  .cell:nth-child(-n + 72):not(:nth-child(27n)),
+  .cell:nth-child(-n + 81):not(:nth-child(27n)) {
+    border-bottom: 1px solid #ccc;
   }
   
   .cell:nth-child(27n) {
@@ -102,11 +111,11 @@ body {
     }
   
     .cell:nth-child(3n) {
-      border-right: 1px solid black;
+      border-right: 2px solid black;
     }
   
     .cell:nth-child(27n) {
-      border-bottom: 1px solid black;
+      border-bottom: 2px solid black;
     }
   
     .cell input {
