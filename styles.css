@@ -18,11 +18,16 @@ body {
   }
   
   .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     width: calc(var(--num-cells) * (var(--cell-size) + 2 * var(--border-width)) + (var(--num-cells) - 1) * var(--gap) + 2 * (var(--bold-border-width) - var(--border-width)));
-    height: auto;
+    height: 100vh;
     padding-bottom: 20px;
   }
+  
   
   
 #game-board {
