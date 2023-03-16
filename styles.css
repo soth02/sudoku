@@ -93,11 +93,20 @@ body {
     #game-board {
       width: 310px;
       height: 310px;
+      gap: 1px;
     }
   
     .cell {
       width: 34px;
       height: 34px;
+    }
+  
+    .cell:nth-child(3n) {
+      border-right: 2px solid black;
+    }
+  
+    .cell:nth-child(27n) {
+      border-bottom: 2px solid black;
     }
   
     .cell input {
